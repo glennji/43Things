@@ -10,6 +10,14 @@ public class Goal {
     private int notWorthIt;
     private float worthItPercent;
     
+    public Goal(String goal) {
+        this.name = goal;
+    }
+    
+    public String toString() {
+        return name;
+    }
+    
     /**
      * @return the id
      */

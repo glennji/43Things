@@ -1,5 +1,6 @@
 package com.glennji.f3t;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class F3TDao {
     
     public List<Goal> getAllGoals() {
         // TODO: return a list of all the goals
-        return null;
+        return new ArrayList<Goal>(0);
     }
     
     public Goal getGoal(int id) {

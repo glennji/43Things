@@ -6,7 +6,7 @@
     <uses-sdk android:minSdkVersion="4" />
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name="F3TActivicom.glennji.f3t.F3TActivity" android:label="@string/app_name">
+        <activity android:name="com.glennji.f3t.F3TActivity" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
