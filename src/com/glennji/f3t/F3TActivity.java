@@ -1,11 +1,10 @@
 package com.glennji.f3t;
 
-import java.util.List;
-
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 public class F3TActivity extends Activity {
     
@@ -17,22 +16,14 @@ public class F3TActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         dao = F3TDaoFactory.getFactory(getApplicationContext()).getDao();
-        List<Goal> goals = dao.getAllGoals();
-        
-        // Test adding a goal
-        Goal testGoal = new Goal("Test goal");
-        Goal testGoal2 = new Goal("Test goal 2");
-        goals.add(testGoal);
-        goals.add(testGoal2);
-        
         final ListView goalListView = (ListView) findViewById(R.id.goalListView);
-        
-        // Create the array adapter to bind the array to the listview
-        final ArrayAdapter<Goal> aa;
-        aa = new ArrayAdapter<Goal>(this, android.R.layout.simple_list_item_1,
-                goals);
-        
-        goalListView.setAdapter(aa);
+        Cursor cursor = dao.getAllGoals();
+        startManagingCursor(cursor);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                getApplicationContext(), android.R.layout.simple_list_item_1,
+                cursor, new String[] { "_name" },
+                new int[] { android.R.id.text1 });
+        goalListView.setAdapter(adapter);
         
     }
 }

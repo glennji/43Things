@@ -3,6 +3,9 @@ package com.glennji.f3t;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * It's not <em>quite</em> a real DAO pattern; instead it's a generic DAO for
  * all the types that we have in the database (clue: none yet).
@@ -12,19 +15,19 @@ import java.util.List;
  */
 public class F3TDao {
     
-    private SimpleDatabaseHelper helper;
+    private SQLiteDatabase db;
     
-    public F3TDao(SimpleDatabaseHelper hlpr) {
-        helper = hlpr;
+    public F3TDao(SQLiteDatabase database) {
+        db = database;
     }
     
-    public List<Goal> getAllGoals() {
-        // TODO: return a list of all the goals
-        return new ArrayList<Goal>(0);
+    public Cursor getAllGoals() {
+        return db.query(true, "goals", new String[] { "_id", "_name" }, null, null,
+                null, null, null, null);
     }
     
     public Goal getGoal(int id) {
-        // TODO: return a Goal using the helper
+        // TODO: return a Goal using the db
         return null;
     }
     

@@ -2,7 +2,7 @@
 <resources>
 	<string name="hello">Hello World, FortyThreeThings!</string>
 	<string name="app_name">43Things</string>
-	<string name="db_create_query">CREATE TABLE things (thing_id INTEGER PRIMARY KEY AUTOINCREMENT, entry TEXT NOT NULL)</string>
-	<integer name="db_version">1</integer>
-	<string name="db_name">43ThingsDB</string>
+	<string name="db_create_query">CREATE TABLE goals(_id INTEGER PRIMARY KEY AUTOINCREMENT, _name TEXT NOT NULL);</string>
+	<integer name="db_version">5</integer>
+	<string name="db_name">43Things.db</string>
 </resources>
