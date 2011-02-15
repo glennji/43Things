@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, FortyThreeThings!</string>
+	<string name="app_name">43Things</string>
+	<string name="db_create_query">CREATE TABLE things (thing_id INTEGER PRIMARY KEY AUTOINCREMENT, entry TEXT NOT NULL)</string>
+	<integer name="db_version">1</integer>
+	<string name="db_name">43ThingsDB</string>
+</resources>
