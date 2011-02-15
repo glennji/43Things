@@ -3,6 +3,7 @@ package com.glennji.f3t;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -19,9 +20,13 @@ public class F3TDao {
     
     public F3TDao(SQLiteDatabase database) {
         db = database;
+        // Add a test goal
+        ContentValues v = new ContentValues();
+        v.put("_name", "Conquer the world!");
+        db.insert("goals", null, v);
     }
     
-    public Cursor getAllGoals() {
+    public Cursor getAllGoalsCursor() {
         return db.query(true, "goals", new String[] { "_id", "_name" }, null, null,
                 null, null, null, null);
     }
