@@ -31,9 +31,9 @@ public class F3TDao {
                 null, null, null, null);
     }
     
-    public Goal getGoal(int id) {
-        // TODO: return a Goal using the db
-        return null;
+    public Cursor getGoalByIdCursor(int id) {
+        return db.query("goals", null, "where _id = ?", new String[] { Integer.toString(id)},
+                null, null, null);
     }
     
     public boolean removeGoal(int id) {
