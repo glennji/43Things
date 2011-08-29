@@ -2,6 +2,8 @@ package com.glennji.f3t;
 
 import java.net.URL;
 
+import android.content.ContentValues;
+
 public class Goal {
     private int id;
     private String name;
@@ -24,70 +26,102 @@ public class Goal {
     public int getId() {
         return id;
     }
+    
     /**
-     * @param id the id to set
+     * @param id
+     *            the id to set
      */
     public void setId(int id) {
         this.id = id;
     }
+    
     /**
      * @return the name
      */
     public String getName() {
         return name;
     }
+    
     /**
-     * @param name the name to set
+     * @param name
+     *            the name to set
      */
     public void setName(String name) {
         this.name = name;
     }
+    
     /**
      * @return the link
      */
     public URL getLink() {
         return link;
     }
+    
     /**
-     * @param link the link to set
+     * @param link
+     *            the link to set
      */
     public void setLink(URL link) {
         this.link = link;
     }
+    
     /**
      * @return the worthIt
      */
     public int getWorthIt() {
         return worthIt;
     }
+    
     /**
-     * @param worthIt the worthIt to set
+     * @param worthIt
+     *            the worthIt to set
      */
     public void setWorthIt(int worthIt) {
         this.worthIt = worthIt;
     }
+    
     /**
      * @return the notWorthIt
      */
     public int getNotWorthIt() {
         return notWorthIt;
     }
+    
     /**
-     * @param notWorthIt the notWorthIt to set
+     * @param notWorthIt
+     *            the notWorthIt to set
      */
     public void setNotWorthIt(int notWorthIt) {
         this.notWorthIt = notWorthIt;
     }
+    
     /**
      * @return the worthItPercent
      */
     public float getWorthItPercent() {
         return worthItPercent;
     }
+    
     /**
-     * @param worthItPercent the worthItPercent to set
+     * @param worthItPercent
+     *            the worthItPercent to set
      */
     public void setWorthItPercent(float worthItPercent) {
         this.worthItPercent = worthItPercent;
+    }
+    
+    /**
+     * A database-persistable representation of this Goal. 
+     * @return
+     */
+    public ContentValues getContentValues() {
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("link", link.toExternalForm());
+        values.put("worthIt", worthIt);
+        values.put("notWorthIt", notWorthIt);
+        values.put("worthItPercent", worthItPercent);
+        
+        return values;
     }
 }

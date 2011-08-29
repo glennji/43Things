@@ -27,28 +27,26 @@ public class F3TDao {
     }
     
     public Cursor getAllGoalsCursor() {
-        return db.query(true, "goals", new String[] { "_id", "_name" }, null, null,
-                null, null, null, null);
+        return db.query(true, "goals", new String[] { "_id", "_name" }, null,
+                null, null, null, null, null);
     }
     
     public Cursor getGoalByIdCursor(int id) {
-        return db.query("goals", null, "where _id = ?", new String[] { Integer.toString(id)},
-                null, null, null);
+        return db.query("goals", null, "where _id = ?",
+                new String[] { Integer.toString(id) }, null, null, null);
     }
     
     public boolean removeGoal(int id) {
-        // TODO: remove the Goal with the ID
-        return false;
+        return db.delete("goal", "_id =" + id, null) > 0;
     }
     
     public boolean add(Goal goal) {
-        // TODO: insert a goal
-        return false;
+        return (db.insert("goals", null, goal.getContentValues()) > 0);
     }
     
     public boolean update(Goal goal) {
-        // TODO: update an existing goal
-        return false;
+        return db.update("goal", goal.getContentValues(),
+                "_id =" + goal.getId(), null) > 0;
     }
     
 }
